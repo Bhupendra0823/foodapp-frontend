@@ -23,7 +23,7 @@ export class OrderComponent {
       this.id = +params['id'];
     });
     this.http
-      .get(`http://localhost:9000/customer/preview/tableNo=${this.id}`)
+      .get(`https://foodappbackend-9ehs.onrender.com/customer/preview/tableNo=${this.id}`)
       .subscribe(
         (response) => {
           this.previewData = response;
@@ -40,7 +40,7 @@ export class OrderComponent {
         console.log(this.previewData.orderStatus)
         console.log(this.previewData.tableID)
         this.http
-          .post(`http://localhost:9000/kitchen/orderstatus/${this.previewData.tableID}`, this.previewData)
+          .post(`https://foodappbackend-9ehs.onrender.com/kitchen/orderstatus/${this.previewData.tableID}`, this.previewData)
           .subscribe(
             (response) => {
               this.toastr.success('Order status updated successfully');
@@ -58,7 +58,7 @@ export class OrderComponent {
       completeOrder(tableID:any){
         console.log(tableID)
         this.http
-        .delete(`http://localhost:9000/customer/delete/tableNo=${this.id}`)
+        .delete(`https://foodappbackend-9ehs.onrender.com/customer/delete/tableNo=${this.id}`)
         .subscribe(
           (response) => {
             this.toastr.success('Order Completed Successfully and table is free now');

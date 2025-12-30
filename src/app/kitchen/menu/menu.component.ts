@@ -44,7 +44,7 @@ export class MenuComponent implements OnInit {
     this.resetForm();
   }
   fetchMenu() {
-    this.http.get('http://localhost:9000/kitchen/getmenu').subscribe(
+    this.http.get('https://foodappbackend-9ehs.onrender.com/kitchen/getmenu').subscribe(
       (response) => {
         this.allMenu = response;
         console.log(this.allMenu);
@@ -70,7 +70,7 @@ export class MenuComponent implements OnInit {
   }
   deleteFoodItem(foodID: any) {
     this.http
-      .delete(`http://localhost:9000/kitchen/delete/${foodID}`)
+      .delete(`https://foodappbackend-9ehs.onrender.com/kitchen/delete/${foodID}`)
       .subscribe(
         (response) => {
           console.log('Item Deleted');
@@ -86,7 +86,7 @@ export class MenuComponent implements OnInit {
 
   onSubmit() {
     if (this.selectedItem) {
-      const updateEndpoint = `http://localhost:9000/kitchen/update/${this.selectedItem._id}`;
+      const updateEndpoint = `https://foodappbackend-9ehs.onrender.com/kitchen/update/${this.selectedItem._id}`;
       const updatePayload = {
         name: this.form.value.name,
         price: this.form.value.price,
@@ -112,7 +112,7 @@ export class MenuComponent implements OnInit {
         this.toastr.error('Error in adding menu item.');
         return;
       }
-      this.http.post("http://localhost:9000/kitchen/addmenu/",{
+      this.http.post("https://foodappbackend-9ehs.onrender.com/kitchen/addmenu/",{
           name :this.form.value.name,
           price:this.form.value.price,
           category:this.form.value.category,

@@ -35,7 +35,7 @@ export class ThankYouComponent implements OnDestroy {
 
   loadData() {
     this.http
-      .get(`http://localhost:9000/customer/preview/tableNo=${this.id}`)
+      .get(`https://foodappbackend-9ehs.onrender.com/customer/preview/tableNo=${this.id}`)
       .subscribe(
         (response) => {
           this.previewData = response;

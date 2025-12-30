@@ -54,7 +54,7 @@ export class PreviewComponent {
       this.id = +params['id'];
     });
     this.http
-      .get(`http://localhost:9000/customer/preview/tableNo=${this.id}`)
+      .get(`https://foodappbackend-9ehs.onrender.com/customer/preview/tableNo=${this.id}`)
       .subscribe(
         (response) => {
           this.previewData = response as PreviewData;
@@ -74,7 +74,7 @@ export class PreviewComponent {
   }
   deleteCancel() {
     this.http
-      .delete(`http://localhost:9000/customer/delete/tableNo=${this.id}`)
+      .delete(`https://foodappbackend-9ehs.onrender.com/customer/delete/tableNo=${this.id}`)
       .subscribe(
         (response) => {
           console.log('response data', response);
@@ -89,7 +89,7 @@ export class PreviewComponent {
   }
   confirmOrder() {
     this.toastr.success('Order Saved Successfully');
-    this.http.post(`http://localhost:9000/customer/sendMail/${this.id}`,{
+    this.http.post(`https://foodappbackend-9ehs.onrender.com/customer/sendMail/${this.id}`,{
       food:this.previewData.desireOrder
     })
     .subscribe(

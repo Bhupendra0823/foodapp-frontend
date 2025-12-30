@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
     this.http
-      .get('http://localhost:9000/kitchen/home')
+      .get('https://foodappbackend-9ehs.onrender.com/kitchen/home')
       .subscribe((response) => {
         this.allCustomers = response;
       });

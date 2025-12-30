@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.form.value);
-    this.http.post('http://localhost:9000/kitchen/login', this.form.value).subscribe(
+    this.http.post('https://foodappbackend-9ehs.onrender.com/kitchen/login', this.form.value).subscribe(
       (response) => {
         console.log(response);
         this.toastr.success('Login Successful');

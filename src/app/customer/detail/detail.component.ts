@@ -64,7 +64,7 @@ export class DetailComponent implements OnInit {
       };
       this.http
         .post(
-          `http://localhost:9000/customer/home/tableNo=${this.id}`,
+          `https://foodappbackend-9ehs.onrender.com/customer/home/tableNo=${this.id}`,
           postData
         )
         .subscribe(

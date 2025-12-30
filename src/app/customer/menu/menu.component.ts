@@ -44,7 +44,7 @@ export class MenuComponent implements OnInit {
     });
 
     this.http
-      .get<MenuItem[]>(`http://localhost:9000/customer/menu/tableNo=${this.id}`)
+      .get<MenuItem[]>(`https://foodappbackend-9ehs.onrender.com/customer/menu/tableNo=${this.id}`)
       .subscribe(
         (response) => {
           this.categories = this.classifyItemsByCategory(response);
@@ -115,7 +115,7 @@ export class MenuComponent implements OnInit {
     console.log('save order to db');
     this.http
       .post(
-        `http://localhost:9000/customer/menu/tableNo=${this.id}`,
+        `https://foodappbackend-9ehs.onrender.com/customer/menu/tableNo=${this.id}`,
         savedOrder
       )
       .subscribe(
